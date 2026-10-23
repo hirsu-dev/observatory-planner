@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#080d18" />
+    <meta
+      name="description"
+      content="Plan an observing night, compare target altitude and keep your field notes. A local astronomy tool by hirsu."
+    />
+    <title>Observatory Planner / hirsu</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="masthead">
+      <a class="brand" href="#planner"
+        ><span aria-hidden="true">✦</span> OBSERVATORY<span class="brand-sub"
+          >PLANNER / 01</span
+        ></a
+      >
+      <nav aria-label="Main">
+        <a href="#planner">Plan a night</a><a href="#targets">Targets</a
+        ><a href="#journal">Field journal</a>
+      </nav>
+      <a class="portfolio-link" href="https://hrushikbarani-hub.github.io/"
+        >hirsu ↗</a
+      >
+    </header>
+    <div class="mode" id="mode">Connecting to storage…</div>
+    <p class="notice" id="storage-warning" hidden></p>
+    <main id="main" tabindex="-1">
+      <section class="intro">
+        <p class="eyebrow">LOOK UP / MAKE A PLAN</p>
+        <h1>A little closer<br />to the <em>stars.</em></h1>
+        <p>Choose your targets. Find a window. Keep what you learn.</p>
+        <div class="intro-orbit" aria-hidden="true">
+          <i></i><b>✦</b><span>LOCAL / PERSONAL / OPEN SOURCE</span>
+        </div>
+      </section>
+      <p id="message" role="status" aria-live="polite"></p>
+      <div id="view"></div>
+    </main>
+    <footer>
+      <span>BUILT BY HIRSU / CONNECTING CODE TO THE NIGHT SKY</span
+      ><a href="https://github.com/hrushikbarani-hub/observatory-planner"
+        >Source & setup ↗</a
+      ><button id="export-all">Export backup JSON ↓</button
+      ><button id="export-csv">Export observation CSV ↓</button>
+    </footer>
+    <dialog id="confirm-delete">
+      <form method="dialog">
+        <h2>Remove this record?</h2>
+        <p>
+          Export a backup first if you want to keep it. Saved plan snapshots and
+          previous observation names are preserved when a target is removed.
+        </p>
+        <button value="cancel">Keep it</button
+        ><button value="delete" class="danger">Remove record</button>
+      </form>
+    </dialog>
+    <noscript
+      >This planner needs JavaScript. Source and local Python setup are
+      available on GitHub.</noscript
+    >
+  </body>
+</html>

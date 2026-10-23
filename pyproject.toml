@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "observatory-planner"
+version = "0.1.0"
+description = "A local astronomy session planner with an explainable browser demo"
+requires-python = ">=3.12"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.28,<1"]
+
+[tool.setuptools.packages.find]
+include = ["observatory*"]
+
+[tool.setuptools.package-data]
+observatory = ["web/*"]

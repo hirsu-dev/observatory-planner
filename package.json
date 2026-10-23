@@ -1,0 +1,12 @@
+{
+  "name": "observatory-planner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check observatory/web/app.js && node --check observatory/web/sky.js && node --check observatory/web/repository.js && node --test tests/web.test.js"
+  },
+  "devDependencies": {
+    "happy-dom": "21.0.4"
+  }
+}
