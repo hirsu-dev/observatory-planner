@@ -18,7 +18,6 @@ from .astro import instant, plan
 
 WEB = Path(__file__).parent / "web"
 
-
 class Target(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
     name: str = Field(min_length=1, max_length=100)
@@ -32,7 +31,6 @@ class Target(BaseModel):
         if not value.strip():
             raise ValueError("Enter a target name.")
         return value.strip()
-
 
 class PlanInput(BaseModel):
     model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
@@ -49,11 +47,9 @@ class PlanInput(BaseModel):
     def valid_time(cls, value):
         return instant(value).isoformat().replace("+00:00", "Z")
 
-
 class Session(BaseModel):
     title: str = Field(min_length=1, max_length=120)
     settings: PlanInput
-
 
 class Observation(BaseModel):
     target_id: str
@@ -65,7 +61,6 @@ class Observation(BaseModel):
     @classmethod
     def valid_time(cls, value):
         return instant(value).isoformat().replace("+00:00", "Z")
-
 
 def create_app(database: str | Path | None = None):
     path = Path(database or os.environ.get("OBSERVATORY_DB", "data/observatory.sqlite"))
@@ -269,7 +264,7 @@ def create_app(database: str | Path | None = None):
         writer.writerow(["target", "observed_at_utc", "outcome", "notes"])
         with db() as conn:
             for r in conn.execute("SELECT * FROM observations ORDER BY observed_at"):
-                # Spreadsheet-safe user content.
+                
                 values = [r["target_name"], r["observed_at"], r["outcome"], r["notes"]]
                 writer.writerow(
                     [
