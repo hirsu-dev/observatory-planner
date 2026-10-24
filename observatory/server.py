@@ -264,7 +264,6 @@ def create_app(database: str | Path | None = None):
         writer.writerow(["target", "observed_at_utc", "outcome", "notes"])
         with db() as conn:
             for r in conn.execute("SELECT * FROM observations ORDER BY observed_at"):
-                
                 values = [r["target_name"], r["observed_at"], r["outcome"], r["notes"]]
                 writer.writerow(
                     [

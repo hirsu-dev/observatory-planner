@@ -75,7 +75,6 @@ def plan(targets: list[dict], settings: dict) -> dict:
                 }
             )
         eligible = [s for s in samples if s["eligible"]]
-        
         minutes = sum(
             10 for a, b in zip(samples, samples[1:]) if a["eligible"] and b["eligible"]
         )
