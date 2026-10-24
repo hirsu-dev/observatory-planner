@@ -3,7 +3,6 @@
 from datetime import datetime, timedelta, timezone
 from math import asin, atan2, cos, degrees, radians, sin
 
-
 def instant(value: str) -> datetime:
     parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     if parsed.tzinfo is None:
@@ -12,7 +11,6 @@ def instant(value: str) -> datetime:
     if not 2020 <= parsed.year <= 2050:
         raise ValueError("Use a date between 2020 and 2050.")
     return parsed
-
 
 def horizontal(
     ra: float, dec: float, latitude: float, longitude: float, when: datetime
@@ -35,7 +33,6 @@ def horizontal(
     azimuth = degrees(atan2(east, north)) % 360
     return {"alt": round(altitude, 6), "az": round(azimuth, 6)}
 
-
 def sun_coordinates(when: datetime) -> tuple[float, float]:
     days = when.timestamp() / 86400 + 2440587.5 - 2451545.0
     mean = radians((280.46 + 0.9856474 * days) % 360)
@@ -46,7 +43,6 @@ def sun_coordinates(when: datetime) -> tuple[float, float]:
         (degrees(atan2(cos(obliquity) * sin(longitude), cos(longitude))) % 360) / 15,
         degrees(asin(sin(obliquity) * sin(longitude))),
     )
-
 
 def plan(targets: list[dict], settings: dict) -> dict:
     start = instant(settings["start"])
@@ -79,7 +75,7 @@ def plan(targets: list[dict], settings: dict) -> dict:
                 }
             )
         eligible = [s for s in samples if s["eligible"]]
-        # Count intervals, not points. Both ends must satisfy the constraints.
+        
         minutes = sum(
             10 for a, b in zip(samples, samples[1:]) if a["eligible"] and b["eligible"]
         )
