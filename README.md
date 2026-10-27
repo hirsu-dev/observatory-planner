@@ -48,7 +48,7 @@ npm run check
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-The checks exercise API validation, database persistence, preserved snapshots, deleted-target log history, CSV output, timezones, polar geometry, cross-origin rejection, browser storage failure, and the real app's DOM events. Python and JavaScript altitude samples are compared. Visual browser QA was unavailable during this release; review the responsive layout in a browser before relying on its appearance on every device.
+The checks exercise API validation, database persistence, preserved snapshots, deleted-target log history, CSV output, timezones, polar geometry, cross-origin rejection, browser storage failure, and the real app's DOM events. Python and JavaScript altitude samples are compared. The responsive layout still needs visual review on intended devices.
 
 ## Files and design
 
