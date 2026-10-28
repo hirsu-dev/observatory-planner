@@ -1,8 +1,8 @@
 # Observatory Planner
 
-Plan a night of observing and keep the notes afterwards. Built by [hirsu](https://hrushikbarani-hub.github.io/) as a practical companion to the Robo Telescope project.
+Plan a night of observing and keep the notes afterwards. Built by [hirsu](https://hirsu-dev.github.io/) as a practical companion to the Robo Telescope project.
 
-**Browser edition:** [try the planner](https://hrushikbarani-hub.github.io/observatory-planner/). It stores your records in this browser. No account, API key or paid host is needed.
+**Browser edition:** [try the planner](https://hirsu-dev.github.io/observatory-planner/). It stores your records in this browser. No account, API key or paid host is needed.
 
 The local Python app uses SQLite instead. Both editions let you:
 
